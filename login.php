@@ -33,7 +33,7 @@ if(isset($_POST['uname']) && isset($_POST['password'])){
             if ($row['user_name'] === $uname && $row['password'] === $pass) {
                 $_SESSION['user_name'] = $row['user_name'];
                 $_SESSION['id'] = $row['id'];
-                header("Location: http://localhost:3000/index.php");
+                header("Location: http://localhost:3000/employees/index.php");
                 exit();
             }
             else {
