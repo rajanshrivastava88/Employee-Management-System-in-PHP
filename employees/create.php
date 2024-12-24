@@ -1,13 +1,17 @@
 <?php
 
-include 'db.php';
+include 'conn.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $age = $_POST['age'];
+    $address = $_POST['address'];
+    $salary = $_POST['salary'];
+    $dob = date('Ymd', strtotime($_POST['dob']));
+    
+    
 
-    $sql = "INSERT INTO users (name, email, age) VALUES ('$name', '$email', $age)";
+    $sql = "INSERT INTO employee (name, email, address, salary, dob) VALUES ('$name', '$email', '$address', $salary, '$dob')";
 
     if($conn->query($sql) === TRUE) {
         header("Location: index.php");
